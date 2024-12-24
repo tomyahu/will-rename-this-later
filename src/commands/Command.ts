@@ -7,13 +7,12 @@ export abstract class Command {
 
 	constructor() {}
 
+	// execute
+	// the action of the command to execute
 	public execute(ctrl : Controller, args : string[]) : void {}
 
-	get name() : string {
-		return this._name;
-	}
 
-	get description() : string {
-		return this._description;
-	}
+	// getters
+	get name() : string { return this._name; }
+	get description() : string { return this._description; }
 }

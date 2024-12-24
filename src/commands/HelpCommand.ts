@@ -9,6 +9,8 @@ export class HelpCommand extends Command {
 		this._description = "Lists all available commands";
 	}
 
+	// execute
+	// lists all commands currently usable
 	public execute(ctrl : Controller, args : string[]) : void {
 		let commands = ctrl.getCommands();
 		for( const [key, command] of Object.entries(commands) ) {

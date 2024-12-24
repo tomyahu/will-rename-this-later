@@ -10,13 +10,15 @@ export class SaveCommand extends Command {
 		this._description = "Saves the current data.";
 	}
 
+	// execute
+	// saves the storage data to a save file
 	public execute(ctrl : Controller, args : string[]) : void {
 		if( args.length > 1 )
 			return console.log("Save accepts at most one command, the path of where to save the file");
 
 		if ( args.length == 1 )
 			ctrl.storage.data_path = args[0];
-		
+
 		ctrl.storage.save()
 	}
 }

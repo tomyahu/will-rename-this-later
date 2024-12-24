@@ -42,6 +42,8 @@ export class Controller {
 	}
 
 
+	// makeCommands
+	// fills the commands given a command array
 	private makeCommands( new_commands : Command[] ) : void {
 		this.commands = {}
 		new_commands.forEach( command => {
@@ -50,8 +52,7 @@ export class Controller {
 	}
 
 
-	get storage() : Storage {
-		return this._storage;
-	}
-
+	// getters
+	get storage() : Storage { return this._storage; }
+	
 }

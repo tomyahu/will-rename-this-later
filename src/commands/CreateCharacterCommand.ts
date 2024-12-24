@@ -10,6 +10,8 @@ export class CreateCharacterCommand extends Command {
 		this._description =  "Creates a new character given a name"
 	}
 
+	// execute
+	// creates a character and adds it to the storage
 	public execute(ctrl: Controller, args : string[]): void {
 		if( args.length != 1 )
 			return console.log("This command takes exactly 1 argument, the character's name.")

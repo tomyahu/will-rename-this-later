@@ -10,6 +10,9 @@ export class LoadCommand extends Command {
 		this._description = "Loads a save data.";
 	}
 
+
+	// execute
+	// loads data from a save file
 	public execute(ctrl : Controller, args : string[]) : void {
 		if( args.length > 1 )
 			return console.log("Load accepts at most one command, the path from where to load the file");

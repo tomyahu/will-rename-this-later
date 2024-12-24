@@ -7,7 +7,6 @@ export class Character {
 	}
 
 
-	get name() : string {
-		return this._name
-	}
+	// getters
+	get name() : string { return this._name }
 }

@@ -11,6 +11,8 @@ export class ListCharactersCommand extends Command {
 	}
 
 
+	// execute
+	// lists all the current characters in the storage
 	public execute(ctrl: Controller, args : string[]): void {
 		let storage = ctrl.storage;
 		let characters = storage.characters;

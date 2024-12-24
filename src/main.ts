@@ -7,6 +7,7 @@ let ctrl = new Controller();
 while( true ) {
 	let msg = readline.question("> ");
 	let splitted_msg = msg.split(" ");
+	
 	let command = splitted_msg[0];
 	splitted_msg.shift();
 
