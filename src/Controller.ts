@@ -2,7 +2,9 @@ import { Command } from "./commands/Command";
 import { CreateCharacterCommand } from "./commands/CreateCharacterCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { ListCharactersCommand } from "./commands/ListCharactersCommand";
+import { LoadCommand } from "./commands/LoadCommand";
 import { PingCommand } from "./commands/PingCommand";
+import { SaveCommand } from "./commands/SaveCommand";
 import { Storage } from "./Storage";
 
 export class Controller {
@@ -14,7 +16,9 @@ export class Controller {
 			new HelpCommand(),
 			new PingCommand(),
 			new CreateCharacterCommand(),
-			new ListCharactersCommand()
+			new ListCharactersCommand(),
+			new SaveCommand(),
+			new LoadCommand()
 		])
 
 		this._storage = new Storage();
