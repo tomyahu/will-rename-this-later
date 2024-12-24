@@ -6,7 +6,7 @@ export class LogsCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "log";
+		this._name = "logs";
 		this._description =  "Displays the last logs, default value is " + this.default_logs.toString()
 	}
 

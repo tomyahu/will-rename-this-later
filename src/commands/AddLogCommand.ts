@@ -5,7 +5,7 @@ export class AddLogCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "add_log";
+		this._name = "log";
 		this._description =  "Adds a new log"
 	}
 
