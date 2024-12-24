@@ -1,0 +1,7 @@
+{
+	"compilerOptions": {
+		"rootDir": "src",
+		"outDir": "dist",
+		"lib": ["ES2017", "DOM"]
+	}
+}
