@@ -3,7 +3,6 @@ import { CreateCharacterCommand } from "./commands/CreateCharacterCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { ListCharactersCommand } from "./commands/ListCharactersCommand";
 import { LoadCommand } from "./commands/LoadCommand";
-import { PingCommand } from "./commands/PingCommand";
 import { SaveCommand } from "./commands/SaveCommand";
 import { Storage } from "./Storage";
 
@@ -14,7 +13,6 @@ export class Controller {
 	constructor() {
 		this.makeCommands([
 			new HelpCommand(),
-			new PingCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
 			new SaveCommand(),
@@ -54,5 +52,5 @@ export class Controller {
 
 	// getters
 	get storage() : Storage { return this._storage; }
-	
+
 }
