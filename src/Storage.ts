@@ -6,10 +6,12 @@ import { CharacterFactory } from "./factories/CharacterFactory";
 export class Storage {
 	private _characters : { [id : string]: Character };
 	private _data_path : string = "data.json";
+	private _logs : string[];
 	private version : string = SAVE_VERSION;
 
 	constructor() {
 		this._characters = {};
+		this._logs = [];
 	}
 
 
@@ -67,6 +69,7 @@ export class Storage {
 
 	// getters
 	get characters() : { [id : string] : Character } { return this._characters; }
+	get logs() : string[] { return this._logs; }
 
 
 	// setters

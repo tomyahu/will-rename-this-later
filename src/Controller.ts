@@ -3,8 +3,10 @@ import { CreateCharacterCommand } from "./commands/CreateCharacterCommand";
 import { HelpCommand } from "./commands/HelpCommand";
 import { ListCharactersCommand } from "./commands/ListCharactersCommand";
 import { LoadCommand } from "./commands/LoadCommand";
+import { AddLogCommand } from "./commands/AddLogCommand";
 import { SaveCommand } from "./commands/SaveCommand";
 import { Storage } from "./Storage";
+import { LogsCommand } from "./commands/LogsCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -16,7 +18,9 @@ export class Controller {
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
 			new SaveCommand(),
-			new LoadCommand()
+			new LoadCommand(),
+			new AddLogCommand(),
+			new LogsCommand()
 		])
 
 		this._storage = new Storage();
