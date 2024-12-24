@@ -54,6 +54,8 @@ export class Storage {
 		Object.values(dictionary.characters).forEach( (character_dict : any) => {
 			this.characters[character_dict._name] = CharacterFactory.fromDictionary(character_dict);
 		})
+
+		this._logs = dictionary.logs;
 	}
 
 
@@ -62,7 +64,8 @@ export class Storage {
 	private asDictionary() {
 		return {
 			"version" : this.version,
-			"characters" : this._characters
+			"characters" : this._characters,
+			"logs": this._logs,
 		}
 	}
 

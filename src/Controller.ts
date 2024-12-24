@@ -7,6 +7,7 @@ import { AddLogCommand } from "./commands/AddLogCommand";
 import { SaveCommand } from "./commands/SaveCommand";
 import { Storage } from "./Storage";
 import { LogsCommand } from "./commands/LogsCommand";
+import { RemoveLogCommand } from "./commands/RemoveLogCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -20,7 +21,8 @@ export class Controller {
 			new SaveCommand(),
 			new LoadCommand(),
 			new AddLogCommand(),
-			new LogsCommand()
+			new LogsCommand(),
+			new RemoveLogCommand()
 		])
 
 		this._storage = new Storage();
