@@ -14,6 +14,7 @@ import { OracleCommand } from "./commands/OracleCommand";
 import { NewTurnCommand } from "./commands/NewTurnCommand";
 import { GoToCommand } from "./commands/GoToCommand";
 import { MigrateCommand } from "./commands/MigrateCommand";
+import { StatusCommand } from "./commands/StatusCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -22,6 +23,7 @@ export class Controller {
 	constructor() {
 		this.makeCommands([
 			new HelpCommand(),
+			new StatusCommand(),
 			new OracleCommand(),
 			new NewTurnCommand(),
 			new CreateCharacterCommand(),
