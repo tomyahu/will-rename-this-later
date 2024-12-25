@@ -8,6 +8,7 @@ export class LogsCommand extends Command {
 		super();
 		this._name = "logs";
 		this._description =  "Displays the last logs, default value is " + this.default_logs.toString()
+		this._category = "logs";
 	}
 
 	// execute

@@ -12,4 +12,5 @@ while( true ) {
 	splitted_msg.shift();
 
 	ctrl.executeCommand( command, splitted_msg );
+	console.log("");
 }

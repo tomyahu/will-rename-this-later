@@ -7,7 +7,8 @@ export class CreateCharacterCommand extends Command {
 	constructor() {
 		super();
 		this._name = "create_character";
-		this._description =  "Creates a new character given a name"
+		this._description =  "Creates a new character given a name";
+		this._category = "characters";
 	}
 
 	// execute

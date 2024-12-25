@@ -8,6 +8,7 @@ export class ListPlacesCommand extends Command {
 		super()
 		this._name = "list_places";
 		this._description = "Shows a list of all places";
+		this._category = "places";
 	}
 
 

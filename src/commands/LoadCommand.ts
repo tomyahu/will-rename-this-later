@@ -8,6 +8,7 @@ export class LoadCommand extends Command {
 		super();
 		this._name = "load";
 		this._description = "Loads a save data.";
+		this._category = "files";
 	}
 
 

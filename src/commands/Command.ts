@@ -3,7 +3,8 @@ import {Controller} from "../Controller"
 
 export abstract class Command {
 	protected _name : string;
-	protected _description: string;
+	protected _description : string;
+	protected _category : string;
 
 	constructor() {}
 
@@ -15,4 +16,5 @@ export abstract class Command {
 	// getters
 	get name() : string { return this._name; }
 	get description() : string { return this._description; }
+	get category() : string { return this._category; }
 }

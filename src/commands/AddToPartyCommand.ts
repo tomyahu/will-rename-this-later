@@ -8,6 +8,7 @@ export class AddToPartyCommand extends Command {
 		super();
 		this._name = "party_add";
 		this._description = "Adds a new member to the party";
+		this._category = "party";
 	}
 
 

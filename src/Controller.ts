@@ -17,6 +17,7 @@ import { MigrateCommand } from "./commands/MigrateCommand";
 import { StatusCommand } from "./commands/StatusCommand";
 import { AddToPartyCommand } from "./commands/AddToPartyCommand";
 import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand copy";
+import { WordTableCommand } from "./commands/WordTableCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -27,6 +28,7 @@ export class Controller {
 			new HelpCommand(),
 			new StatusCommand(),
 			new OracleCommand(),
+			new WordTableCommand(),
 			new NewTurnCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),

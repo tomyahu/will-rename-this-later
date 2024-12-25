@@ -8,6 +8,7 @@ export class ListCharactersCommand extends Command {
 		super()
 		this._name = "list_characters";
 		this._description = "Shows a list of all created characters";
+		this._category = "characters";
 	}
 
 

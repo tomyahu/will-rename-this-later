@@ -6,7 +6,8 @@ export class AddLogCommand extends Command {
 	constructor() {
 		super();
 		this._name = "log";
-		this._description =  "Adds a new log"
+		this._description =  "Adds a new log";
+		this._category = "logs";
 	}
 
 	// execute

@@ -8,6 +8,7 @@ export class GoToCommand extends Command {
 		super();
 		this._name = "goto";
 		this._description = "Goes to a new location";
+		this._category = "places";
 	}
 
 	// execute

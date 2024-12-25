@@ -8,6 +8,7 @@ export class RemoveFromPartyCommand extends Command {
 		super();
 		this._name = "party_rm";
 		this._description = "Removes a member to the party";
+		this._category = "party";
 	}
 
 

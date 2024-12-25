@@ -9,6 +9,7 @@ export class CreatePlaceCommand extends Command {
 		super();
 		this._name = "create_place";
 		this._description = "Creates a new place";
+		this._category = "places";
 	}
 
 

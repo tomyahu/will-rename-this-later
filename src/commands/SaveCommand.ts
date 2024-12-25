@@ -8,6 +8,7 @@ export class SaveCommand extends Command {
 		super();
 		this._name = "save";
 		this._description = "Saves the current data.";
+		this._category = "files";
 	}
 
 	// execute

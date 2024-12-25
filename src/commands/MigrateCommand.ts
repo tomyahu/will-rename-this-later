@@ -8,6 +8,7 @@ export class MigrateCommand extends Command {
 		super();
 		this._name = "migrate";
 		this._description = "Migrates the contents of a save file to the current version";
+		this._category = "files";
 	}
 
 
