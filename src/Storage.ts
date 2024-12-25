@@ -10,6 +10,7 @@ export class Storage {
 	private _data_path : string = "data.json";
 	private _logs : string[];
 	private version : string = SAVE_VERSION;
+	private _called_oracle = false;
 
 	constructor() {
 		this._characters = {};
@@ -92,9 +93,11 @@ export class Storage {
 	get characters() : { [id : string] : Character } { return this._characters; }
 	get places() : { [id : string] : Place } { return this._places; }
 	get logs() : string[] { return this._logs; }
+	get called_oracle() : boolean { return this._called_oracle; }
 
 
 	// setters
-	set data_path( new_data_path : string) { this._data_path = new_data_path; }
+	set data_path( new_data_path : string ) { this._data_path = new_data_path; }
+	set called_oracle( new_oracle : boolean ) { this._called_oracle = new_oracle }
 
 }

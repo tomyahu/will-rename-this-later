@@ -10,6 +10,8 @@ import { LogsCommand } from "./commands/LogsCommand";
 import { RemoveLogCommand } from "./commands/RemoveLogCommand";
 import { CreatePlaceCommand } from "./commands/CreatePlaceCommand";
 import { ListPlacesCommand } from "./commands/ListPlacesCommand";
+import { OracleCommand } from "./commands/OracleCommand";
+import { NewTurnCommand } from "./commands/NewTurnCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -18,6 +20,8 @@ export class Controller {
 	constructor() {
 		this.makeCommands([
 			new HelpCommand(),
+			new OracleCommand(),
+			new NewTurnCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
 			new CreatePlaceCommand(),
