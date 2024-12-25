@@ -2,15 +2,18 @@ import { SAVE_VERSION } from "./consts";
 import { Character } from "./entities/Character"
 import * as fs from "fs"
 import { CharacterFactory } from "./factories/CharacterFactory";
+import { Place } from "./entities/Place";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
+	private _places : { [id : string]: Place };
 	private _data_path : string = "data.json";
 	private _logs : string[];
 	private version : string = SAVE_VERSION;
 
 	constructor() {
 		this._characters = {};
+		this._places = {};
 		this._logs = [];
 	}
 
@@ -20,12 +23,26 @@ export class Storage {
 	public addCharacter( character : Character ) : void {
 		this._characters[character.name] = character;
 	}
+	
+	
+	// addPlace
+	// adds a character to the storage
+	public addPlace( place : Place ) : void {
+		this._places[place.name] = place;
+	}
 
 
 	// getCharacter
 	// gets a character in the storage using its name
 	public getCharacter( name : string ) : Character {
 		return this._characters[name];
+	}
+
+
+	// getPlace
+	// gets a place in the storage using its name
+	public getPlace( name : string ) : Place {
+		return this._places[name];
 	}
 
 
@@ -66,12 +83,14 @@ export class Storage {
 			"version" : this.version,
 			"characters" : this._characters,
 			"logs": this._logs,
+			"places": this._places,
 		}
 	}
 
 
 	// getters
 	get characters() : { [id : string] : Character } { return this._characters; }
+	get places() : { [id : string] : Place } { return this._places; }
 	get logs() : string[] { return this._logs; }
 
 

@@ -1,1 +1,1 @@
-export const SAVE_VERSION = "0.1.0" // Current version of the save files
+export const SAVE_VERSION = "0.2.0" // Current version of the save files

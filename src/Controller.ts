@@ -8,6 +8,8 @@ import { SaveCommand } from "./commands/SaveCommand";
 import { Storage } from "./Storage";
 import { LogsCommand } from "./commands/LogsCommand";
 import { RemoveLogCommand } from "./commands/RemoveLogCommand";
+import { CreatePlaceCommand } from "./commands/CreatePlaceCommand";
+import { ListPlacesCommand } from "./commands/ListPlacesCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -18,6 +20,8 @@ export class Controller {
 			new HelpCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
+			new CreatePlaceCommand(),
+			new ListPlacesCommand(),
 			new SaveCommand(),
 			new LoadCommand(),
 			new AddLogCommand(),
