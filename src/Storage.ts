@@ -20,6 +20,8 @@ export class Storage {
 		this._characters = {};
 		this._places = {};
 		this._logs = [];
+		this._current_place = new Place("null");
+		this._party = new Set<string>();
 	}
 
 
