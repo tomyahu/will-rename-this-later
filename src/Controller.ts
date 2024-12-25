@@ -15,6 +15,8 @@ import { NewTurnCommand } from "./commands/NewTurnCommand";
 import { GoToCommand } from "./commands/GoToCommand";
 import { MigrateCommand } from "./commands/MigrateCommand";
 import { StatusCommand } from "./commands/StatusCommand";
+import { AddToPartyCommand } from "./commands/AddToPartyCommand";
+import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand copy";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -28,6 +30,8 @@ export class Controller {
 			new NewTurnCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
+			new AddToPartyCommand(),
+			new RemoveFromPartyCommand(),
 			new CreatePlaceCommand(),
 			new ListPlacesCommand(),
 			new GoToCommand(),

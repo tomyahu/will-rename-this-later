@@ -14,6 +14,7 @@ export class Storage {
 	private version : string = SAVE_VERSION;
 	private _called_oracle = false;
 	private _current_place : Place;
+	private _party : Set<string>;
 
 	constructor() {
 		this._characters = {};
@@ -94,7 +95,8 @@ export class Storage {
 		this._current_place = this._places[dictionary.current_place];
 		if( this._current_place == undefined )
 			this._current_place = new Place("null");
-
+		
+		this._party = new Set<string>(dictionary.party);
 		this._logs = dictionary.logs;
 	}
 
@@ -108,6 +110,7 @@ export class Storage {
 			"logs": this._logs,
 			"places": this._places,
 			"current_place": this._current_place.name,
+			"party": Array.from( this._party.values() ),
 		}
 	}
 
@@ -118,6 +121,7 @@ export class Storage {
 	get logs() : string[] { return this._logs; }
 	get called_oracle() : boolean { return this._called_oracle; }
 	get current_place() : Place { return this._current_place; }
+	get party() : Set<string> { return this._party; }
 
 
 	// setters

@@ -11,6 +11,7 @@ export class SaveMigrationManager {
 		"0.0.1": this.m_0_0_1_to_0_1_0,
 		"0.1.0": this.m_0_1_0_to_0_2_0,
 		"0.2.0": this.m_0_2_0_to_0_2_1,
+		"0.2.1": this.m_0_2_1_to_0_3_0,
 	}
 
 
@@ -50,6 +51,7 @@ export class SaveMigrationManager {
 		return dictionary;
 	}
 
+
 	// 0.2.0 -> 0.2.1
 	public static m_0_2_0_to_0_2_1( dictionary ) {
 		dictionary.current_place = "";
@@ -57,5 +59,12 @@ export class SaveMigrationManager {
 		return dictionary;
 	}
 
+
+	// 0.2.1 -> 0.3.0
+	public static m_0_2_1_to_0_3_0( dictionary ) {
+		dictionary.party = [];
+		dictionary.version = "0.3.0";
+		return dictionary;
+	}
 
 }
