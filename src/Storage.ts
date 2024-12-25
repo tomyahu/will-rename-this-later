@@ -3,6 +3,8 @@ import { Character } from "./entities/Character"
 import * as fs from "fs"
 import { CharacterFactory } from "./factories/CharacterFactory";
 import { Place } from "./entities/Place";
+import { PlaceFactory } from "./factories/PlaceFactory";
+import { SaveMigrationManager } from "./SaveMigrationManager";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
@@ -11,6 +13,7 @@ export class Storage {
 	private _logs : string[];
 	private version : string = SAVE_VERSION;
 	private _called_oracle = false;
+	private _current_place : Place;
 
 	constructor() {
 		this._characters = {};
@@ -65,6 +68,16 @@ export class Storage {
 	}
 
 
+	// migrate
+	// migrates the contents of a savefile to the current version and loads it
+	public migrate() : void {
+		let data : any = JSON.parse( fs.readFileSync( this._data_path ).toString() )
+
+		data = SaveMigrationManager.migrate(data);
+		this.fromDictionary(data);
+	}
+
+
 	// fromDictionary
 	// ovewrites the current storage data with that given by the dictionary
 	private fromDictionary( dictionary ) {
@@ -72,6 +85,15 @@ export class Storage {
 		Object.values(dictionary.characters).forEach( (character_dict : any) => {
 			this.characters[character_dict._name] = CharacterFactory.fromDictionary(character_dict);
 		})
+
+		this._places = {}
+		Object.values(dictionary.places).forEach( (place_dict : any) => {
+			this.places[place_dict._name] = PlaceFactory.fromDictionary(place_dict);
+		})
+
+		this._current_place = this._places[dictionary.current_place];
+		if( this._current_place == undefined )
+			this._current_place = new Place("null");
 
 		this._logs = dictionary.logs;
 	}
@@ -85,6 +107,7 @@ export class Storage {
 			"characters" : this._characters,
 			"logs": this._logs,
 			"places": this._places,
+			"current_place": this._current_place.name,
 		}
 	}
 
@@ -94,10 +117,12 @@ export class Storage {
 	get places() : { [id : string] : Place } { return this._places; }
 	get logs() : string[] { return this._logs; }
 	get called_oracle() : boolean { return this._called_oracle; }
+	get current_place() : Place { return this._current_place; }
 
 
 	// setters
 	set data_path( new_data_path : string ) { this._data_path = new_data_path; }
 	set called_oracle( new_oracle : boolean ) { this._called_oracle = new_oracle }
+	set current_place( new_place : Place ) { this._current_place = new_place }
 
 }

@@ -12,6 +12,8 @@ import { CreatePlaceCommand } from "./commands/CreatePlaceCommand";
 import { ListPlacesCommand } from "./commands/ListPlacesCommand";
 import { OracleCommand } from "./commands/OracleCommand";
 import { NewTurnCommand } from "./commands/NewTurnCommand";
+import { GoToCommand } from "./commands/GoToCommand";
+import { MigrateCommand } from "./commands/MigrateCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -26,8 +28,10 @@ export class Controller {
 			new ListCharactersCommand(),
 			new CreatePlaceCommand(),
 			new ListPlacesCommand(),
+			new GoToCommand(),
 			new SaveCommand(),
 			new LoadCommand(),
+			new MigrateCommand(),
 			new AddLogCommand(),
 			new LogsCommand(),
 			new RemoveLogCommand()
