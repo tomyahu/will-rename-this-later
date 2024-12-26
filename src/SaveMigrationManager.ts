@@ -12,6 +12,7 @@ export class SaveMigrationManager {
 		"0.1.0": this.m_0_1_0_to_0_2_0,
 		"0.2.0": this.m_0_2_0_to_0_2_1,
 		"0.2.1": this.m_0_2_1_to_0_3_0,
+		"0.3.0": this.m_0_3_0_to_0_3_1,
 	}
 
 
@@ -64,6 +65,16 @@ export class SaveMigrationManager {
 	public static m_0_2_1_to_0_3_0( dictionary ) {
 		dictionary.party = [];
 		dictionary.version = "0.3.0";
+		return dictionary;
+	}
+	
+	// 0.3.0 -> 0.3.1
+	public static m_0_3_0_to_0_3_1( dictionary ) {
+		for( const key of Object.keys(dictionary.characters) ) {
+			dictionary.characters[key]["_max_hp"] = 1;
+			dictionary.characters[key]["_hp"] = 1;
+		}
+		dictionary.version = "0.3.1";
 		return dictionary;
 	}
 
