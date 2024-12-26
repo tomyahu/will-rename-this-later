@@ -19,6 +19,7 @@ import { AddToPartyCommand } from "./commands/AddToPartyCommand";
 import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand copy";
 import { WordTableCommand } from "./commands/WordTableCommand";
 import { FullHealCommand } from "./commands/FullHealCommand";
+import { SetCharacterAttrCommand } from "./commands/SetCharacterAttrCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -36,6 +37,7 @@ export class Controller {
 			new AddToPartyCommand(),
 			new RemoveFromPartyCommand(),
 			new FullHealCommand(),
+			new SetCharacterAttrCommand(),
 			new CreatePlaceCommand(),
 			new ListPlacesCommand(),
 			new GoToCommand(),
