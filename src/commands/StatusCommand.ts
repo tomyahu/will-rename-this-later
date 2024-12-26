@@ -19,7 +19,8 @@ export class StatusCommand extends Command {
 
 		let current_place = storage.current_place;
 		console.log("-- Place --");
-		console.log(`${current_place.name} <${current_place.difficulty}>`);
+		console.log(`${current_place.name}`);
+		console.log(`Difficulty - ${current_place.difficulty}`);
 		console.log("\n");
 
 		let party = Array.from(storage.party);
