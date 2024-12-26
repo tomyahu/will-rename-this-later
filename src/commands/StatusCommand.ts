@@ -18,14 +18,19 @@ export class StatusCommand extends Command {
 		let storage = ctrl.storage;
 
 		let current_place = storage.current_place;
-		console.log("-- Place --")
+		console.log("-- Place --");
 		console.log(`${current_place.name} <${current_place.difficulty}>`);
-		console.log("")
+		console.log("\n");
 
 		let party = Array.from(storage.party);
-		console.log("-- Party --")
+		console.log("-- Party --");
 		for( let character_name of party ) {
-			console.log(character_name)
+			let character = storage.getCharacter( character_name );
+
+			console.log(character_name);
+			console.log(`HP - ${character.hp} / ${character.max_hp}`);
+			console.log("");
+
 		}
 	}
 }
