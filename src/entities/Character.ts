@@ -37,7 +37,7 @@ export class Character {
 	// getters
 	get name() : string { return this._name; }
 	get max_hp() : number { return this._max_hp; }
-	get hp() : number { return this.hp; }
+	get hp() : number { return this._hp; }
 
 	// setters
 	set max_hp( new_max_hp : number ) { this._max_hp = new_max_hp; }
