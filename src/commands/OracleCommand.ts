@@ -1,4 +1,5 @@
 import { Controller } from "../Controller";
+import { WordGenerator } from "../lib/WordGenerator";
 import { Command } from "./Command";
 
 
@@ -20,9 +21,9 @@ export class OracleCommand extends Command {
 		if( rand < 0.25 )
 			console.log("No");
 		else if( rand < 0.25 )
-			console.log("No but");
+			console.log(`No but ${WordGenerator.randomWord()}`);
 		else if( rand < 0.25 )
-			console.log("Yes but");
+			console.log(`Yes but ${WordGenerator.randomWord()}`);
 		else
 			console.log("Yes");
 

@@ -25,7 +25,13 @@ export class GoToCommand extends Command {
 		
 		storage.current_place = storage.getPlace( place_name );
 		
+		let party = storage.party;
 		let log_msg = `The group goes to ${place_name}`;
+		if( party.size == 1 ) {
+			let party_member = Array.from( party )[0];
+			log_msg = `${party_member} goes to ${place_name}`;
+		}
+
 		console.log(log_msg)
 		storage.logs.push(log_msg);
 	}

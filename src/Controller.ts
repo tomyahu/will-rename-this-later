@@ -25,6 +25,7 @@ import { ListAllMysteriesCommand } from "./commands/ListAllMysteriesCommand";
 import { ListMysteriesCommand } from "./commands/ListMysteriesCommand";
 import { MysteryClueCommand } from "./commands/MysteryClueCommand";
 import { MysteryDetailsCommand } from "./commands/MysteryDetailsCommand";
+import { CharacterCommand } from "./commands/CharacterCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -39,6 +40,7 @@ export class Controller {
 			new NewTurnCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
+			new CharacterCommand(),
 			new AddToPartyCommand(),
 			new RemoveFromPartyCommand(),
 			new FullHealCommand(),
