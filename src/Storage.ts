@@ -6,6 +6,7 @@ import { Place } from "./entities/Place";
 import { PlaceFactory } from "./factories/PlaceFactory";
 import { SaveMigrationManager } from "./SaveMigrationManager";
 import { Mystery } from "./entities/Mystery";
+import { MysteryFactory } from "./factories/MysteryFactory";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
@@ -114,6 +115,9 @@ export class Storage {
 		this._current_place = this._places[dictionary.current_place];
 		if( this._current_place == undefined )
 			this._current_place = new Place("null");
+
+		this._mysteries = [];
+		dictionary.mysteries.forEach( mystery => { this._mysteries.push( MysteryFactory.fromDictionary( mystery ) ) } )
 		
 		this._party = new Set<string>(dictionary.party);
 		this._logs = dictionary.logs;
@@ -130,6 +134,7 @@ export class Storage {
 			"places": this._places,
 			"current_place": this._current_place.name,
 			"party": Array.from( this._party.values() ),
+			"mysteries": this._mysteries.map( mystery => { return mystery.toDictionary(); } ),
 		}
 	}
 

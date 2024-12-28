@@ -36,6 +36,38 @@ export class Mystery {
 	}
 
 
+	// toDictionary
+	// returns this mystery as a dictionary
+	public toDictionary() {
+		let mystery_dict = {
+			_name: this._name,
+			undiscovered_clues : Array.from( this.undiscovered_clues ),
+			discovered_clues : Array.from( this.discovered_clues ),
+		}
+		return mystery_dict;
+	}
+
+
+	// setUndiscoverdClues
+	// sets the undiscovered clues of the mystery
+	public _setUndiscoveredClues( clues : string[] ) : void {
+		this.undiscovered_clues.clear();
+		clues.forEach( clue => {
+			this.undiscovered_clues.add( clue );
+		});
+	}
+
+
+	// setDiscoverdClues
+	// sets the discovered clues of the mystery
+	public _setDiscoveredClues( clues : string[] ) : void {
+		this.discovered_clues.clear();
+		clues.forEach( clue => {
+			this.discovered_clues.add( clue );
+		});
+	}
+
+
 	// getters
 	get name() : string { return this._name; }
 	get is_solved() : boolean { return this.undiscovered_clues.size == 0; }
