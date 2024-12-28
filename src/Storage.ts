@@ -5,10 +5,12 @@ import { CharacterFactory } from "./factories/CharacterFactory";
 import { Place } from "./entities/Place";
 import { PlaceFactory } from "./factories/PlaceFactory";
 import { SaveMigrationManager } from "./SaveMigrationManager";
+import { Mystery } from "./entities/Mystery";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
 	private _places : { [id : string]: Place };
+	private _mysteries : Mystery[];
 	private _data_path : string = "data.json";
 	private _logs : string[];
 	private version : string = SAVE_VERSION;
@@ -19,6 +21,7 @@ export class Storage {
 	constructor() {
 		this._characters = {};
 		this._places = {};
+		this._mysteries = [];
 		this._logs = [];
 		this._current_place = new Place("null");
 		this._party = new Set<string>();
@@ -39,6 +42,13 @@ export class Storage {
 	}
 
 
+	// addMystery
+	// adds a mystery to the storage
+	public addMystery( mystery : Mystery ) : void {
+		this._mysteries.push( mystery );
+	}
+
+
 	// getCharacter
 	// gets a character in the storage using its name
 	public getCharacter( name : string ) : Character {
@@ -50,6 +60,13 @@ export class Storage {
 	// gets a place in the storage using its name
 	public getPlace( name : string ) : Place {
 		return this._places[name];
+	}
+
+
+	// getMysteries
+	// gets all mysteries in the storage
+	public getMysteries() : Mystery[] {
+		return this._mysteries;
 	}
 
 

@@ -20,6 +20,11 @@ import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand copy";
 import { WordTableCommand } from "./commands/WordTableCommand";
 import { FullHealCommand } from "./commands/FullHealCommand";
 import { SetCharacterAttrCommand } from "./commands/SetCharacterAttrCommand";
+import { CreateMysteryCommand } from "./commands/CreateMysteryCommand";
+import { ListAllMysteriesCommand } from "./commands/ListAllMysteriesCommand";
+import { ListMysteriesCommand } from "./commands/ListMysteriesCommand";
+import { MysteryClueCommand } from "./commands/MysteryClueCommand";
+import { MysteryDetailsCommand } from "./commands/MysteryDetailsCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -41,6 +46,11 @@ export class Controller {
 			new CreatePlaceCommand(),
 			new ListPlacesCommand(),
 			new GoToCommand(),
+			new CreateMysteryCommand(),
+			new ListAllMysteriesCommand(),
+			new ListMysteriesCommand(),
+			new MysteryClueCommand(),
+			new MysteryDetailsCommand(),
 			new SaveCommand(),
 			new LoadCommand(),
 			new MigrateCommand(),

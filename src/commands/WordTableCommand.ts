@@ -1,5 +1,6 @@
 import { WORD_TABLE } from "../consts";
 import { Controller } from "../Controller";
+import { WordGenerator } from "../lib/WordGenerator";
 import { Command } from "./Command";
 
 
@@ -21,11 +22,7 @@ export class WordTableCommand extends Command {
 			total_words = Number.parseInt( args[0] );
 
 		for( let i = 0; i < total_words; i++ )
-			console.log( this.randomWord() );
+			console.log( WordGenerator.randomWord() );
 	}
 
-
-	private randomWord() {
-		return WORD_TABLE[ Math.floor( Math.random() * WORD_TABLE.length ) ];
-	}
 }
