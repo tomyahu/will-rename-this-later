@@ -26,6 +26,7 @@ import { ListMysteriesCommand } from "./commands/ListMysteriesCommand";
 import { MysteryClueCommand } from "./commands/MysteryClueCommand";
 import { MysteryDetailsCommand } from "./commands/MysteryDetailsCommand";
 import { CharacterCommand } from "./commands/CharacterCommand";
+import { RollCommand } from "./commands/RollCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -37,6 +38,7 @@ export class Controller {
 			new StatusCommand(),
 			new OracleCommand(),
 			new WordTableCommand(),
+			new RollCommand(),
 			new NewTurnCommand(),
 			new CreateCharacterCommand(),
 			new ListCharactersCommand(),
