@@ -14,6 +14,7 @@ export class SaveMigrationManager {
 		"0.2.1": this.m_0_2_1_to_0_3_0,
 		"0.3.0": this.m_0_3_0_to_0_3_1,
 		"0.3.1": this.m_0_3_1_to_0_4_0,
+		"0.4.0": this.m_0_4_0_to_0_4_1,
 	}
 
 
@@ -83,6 +84,13 @@ export class SaveMigrationManager {
 	public static m_0_3_1_to_0_4_0( dictionary ) {
 		dictionary.mysteries = [];
 		dictionary.version = "0.4.0";
+		return dictionary;
+	}
+
+	// 0.4.0 -> 0.4.1
+	public static m_0_4_0_to_0_4_1( dictionary ) {
+		dictionary.conditions = {};
+		dictionary.version = "0.4.1";
 		return dictionary;
 	}
 

@@ -7,6 +7,7 @@ import { PlaceFactory } from "./factories/PlaceFactory";
 import { SaveMigrationManager } from "./SaveMigrationManager";
 import { Mystery } from "./entities/Mystery";
 import { MysteryFactory } from "./factories/MysteryFactory";
+import { Condition } from "./entities/Condition";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
@@ -18,6 +19,7 @@ export class Storage {
 	private _called_oracle = false;
 	private _current_place : Place;
 	private _party : Set<string>;
+	private _conditions : { [id : string]: Condition };
 
 	constructor() {
 		this._characters = {};
@@ -26,6 +28,7 @@ export class Storage {
 		this._logs = [];
 		this._current_place = new Place("null");
 		this._party = new Set<string>();
+		this._conditions = {};
 	}
 
 
@@ -47,6 +50,13 @@ export class Storage {
 	// adds a mystery to the storage
 	public addMystery( mystery : Mystery ) : void {
 		this._mysteries.push( mystery );
+	}
+
+
+	// addCondition
+	// adds a new condition to the storage
+	public addCondition( condition : Condition ) : void {
+		this._conditions[ condition.name ] = condition;
 	}
 
 
@@ -118,6 +128,9 @@ export class Storage {
 
 		this._mysteries = [];
 		dictionary.mysteries.forEach( mystery => { this._mysteries.push( MysteryFactory.fromDictionary( mystery ) ) } )
+
+		this._conditions = {};
+		Object.values(dictionary.conditions).forEach( (condition : any) => { this._conditions[ condition._name ] = new Condition( condition._name, condition._description ) } );
 		
 		this._party = new Set<string>(dictionary.party);
 		this._logs = dictionary.logs;
@@ -135,6 +148,7 @@ export class Storage {
 			"current_place": this._current_place.name,
 			"party": Array.from( this._party.values() ),
 			"mysteries": this._mysteries.map( mystery => { return mystery.toDictionary(); } ),
+			"conditions": this._conditions,
 		}
 	}
 
@@ -146,6 +160,7 @@ export class Storage {
 	get called_oracle() : boolean { return this._called_oracle; }
 	get current_place() : Place { return this._current_place; }
 	get party() : Set<string> { return this._party; }
+	get conditions() : { [id : string] : Condition } { return this._conditions }
 
 
 	// setters

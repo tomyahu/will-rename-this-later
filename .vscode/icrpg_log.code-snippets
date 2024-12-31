@@ -1,0 +1,27 @@
+{
+	"New Command": {
+		"scope": "typescript",
+		"prefix": "command",
+		"body": [
+			"import { Controller } from \"../Controller\";",
+			"import { Command } from \"./Command\";",
+			"",
+			"export class _____ extends Command {",
+			"",
+			"\tconstructor() {",
+			"\t\tsuper();",
+			"\t\tthis._name = \"_____\";",
+			"\t\tthis._description =  \"_____\";",
+			"\t\tthis._category = \"_____\";",
+			"\t}",
+			"",
+			"\t// execute",
+			"\t// creates a character and adds it to the storage",
+			"\tpublic execute(ctrl: Controller, args : string[]): void {",
+			"\t\tlet storage = ctrl.storage;",
+			"\t}",
+			"}"
+		],
+		"description": "Log output to console"
+	}
+}

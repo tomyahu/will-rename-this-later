@@ -27,6 +27,8 @@ import { MysteryClueCommand } from "./commands/MysteryClueCommand";
 import { MysteryDetailsCommand } from "./commands/MysteryDetailsCommand";
 import { CharacterCommand } from "./commands/CharacterCommand";
 import { RollCommand } from "./commands/RollCommand";
+import { CreateConditionCommand } from "./commands/CreateConditionCommand";
+import { ListConditionsCommand } from "./commands/ListConditionsCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -60,7 +62,9 @@ export class Controller {
 			new MigrateCommand(),
 			new AddLogCommand(),
 			new LogsCommand(),
-			new RemoveLogCommand()
+			new RemoveLogCommand(),
+			new CreateConditionCommand(),
+			new ListConditionsCommand(),
 		])
 
 		this._storage = new Storage();
