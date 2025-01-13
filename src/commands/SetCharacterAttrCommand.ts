@@ -7,7 +7,7 @@ export class SetCharacterAttrCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "set_character_attr";
+		this._name = "c-attr";
 		this._description = "Sets a character's attribute directly";
 		this._category = "characters";
 	}
