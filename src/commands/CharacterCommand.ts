@@ -6,7 +6,7 @@ export class CharacterCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "character";
+		this._name = "c";
 		this._description = "Shows a character's data"
 		this._category = "characters";
 	}
