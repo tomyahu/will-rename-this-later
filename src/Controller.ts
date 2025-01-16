@@ -29,6 +29,7 @@ import { CharacterCommand } from "./commands/CharacterCommand";
 import { RollCommand } from "./commands/RollCommand";
 import { CreateConditionCommand } from "./commands/CreateConditionCommand";
 import { ListConditionsCommand } from "./commands/ListConditionsCommand";
+import { DamageCommand } from "./commands/DamageCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -48,6 +49,7 @@ export class Controller {
 			new AddToPartyCommand(),
 			new RemoveFromPartyCommand(),
 			new FullHealCommand(),
+			new DamageCommand(),
 			new SetCharacterAttrCommand(),
 			new CreatePlaceCommand(),
 			new ListPlacesCommand(),
