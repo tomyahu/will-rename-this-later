@@ -18,5 +18,6 @@ export class NewTurnCommand extends Command {
 		storage.called_oracle = false;
 
 		console.log(`New turn`);
+		storage.save()
 	}
 }

@@ -16,7 +16,7 @@ import { GoToCommand } from "./commands/GoToCommand";
 import { MigrateCommand } from "./commands/MigrateCommand";
 import { StatusCommand } from "./commands/StatusCommand";
 import { AddToPartyCommand } from "./commands/AddToPartyCommand";
-import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand copy";
+import { RemoveFromPartyCommand } from "./commands/RemoveFromPartyCommand";
 import { WordTableCommand } from "./commands/WordTableCommand";
 import { FullHealCommand } from "./commands/FullHealCommand";
 import { SetCharacterAttrCommand } from "./commands/SetCharacterAttrCommand";

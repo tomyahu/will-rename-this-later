@@ -7,9 +7,9 @@ export class CreatePlaceCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "create_place";
+		this._name = "l-create";
 		this._description = "Creates a new place";
-		this._category = "places";
+		this._category = "locations";
 	}
 
 

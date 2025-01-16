@@ -6,7 +6,7 @@ export class MysteryDetailsCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "mystery";
+		this._name = "m";
 		this._description = "Gets the discovered clues for a mystery given its id";
 		this._category = "misteries";
 	}

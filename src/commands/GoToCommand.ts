@@ -6,9 +6,9 @@ export class GoToCommand extends Command {
 	
 	constructor() {
 		super();
-		this._name = "goto";
+		this._name = "l-go";
 		this._description = "Goes to a new location";
-		this._category = "places";
+		this._category = "locations";
 	}
 
 	// execute

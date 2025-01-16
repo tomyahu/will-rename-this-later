@@ -6,7 +6,7 @@ export class FullHealCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "fullheal";
+		this._name = "c-fullheal";
 		this._description = "Fully heals one character";
 		this._category = "battle";
 	}

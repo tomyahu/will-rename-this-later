@@ -6,9 +6,9 @@ export class ListPlacesCommand extends Command {
 
 	constructor() {
 		super()
-		this._name = "list_places";
+		this._name = "l-list";
 		this._description = "Shows a list of all places";
-		this._category = "places";
+		this._category = "locations";
 	}
 
 

@@ -1,3 +1,4 @@
+import * as readline from 'readline-sync';
 import { Controller } from "../Controller";
 import { Command } from "./Command";
 
@@ -25,8 +26,14 @@ export class DamageCommand extends Command {
 		if( character === undefined )
 			return console.log(`Character ${character_name} doesn't exists`)
 
-		character.damage(1)
-		console.log( `${character_name} took 1 dmg (${character.max_hp})` );
+		let splitted_answer = readline.question("Attribute and value: ").split(" ");
+		if( splitted_answer.length != 1 )
+			return console.log("the amount of damage is required");
+
+		let damage = Number.parseInt( splitted_answer[0] );
+
+		character.damage(damage)
+		console.log( `${character_name} took ${damage} dmg (${character.hp})` );
 	}
 
 }

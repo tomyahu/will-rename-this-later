@@ -7,7 +7,7 @@ export class CreateMysteryCommand extends Command{
 
 	constructor() {
 		super();
-		this._name = "new_mystery";
+		this._name = "m-create";
 		this._description = "Creates a new mystery";
 		this._category = "misteries";
 	}

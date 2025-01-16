@@ -6,7 +6,7 @@ export class CreateConditionCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "create_condition";
+		this._name = "cond-create";
 		this._description =  "Creates a new condition";
 		this._category = "conditions";
 	}

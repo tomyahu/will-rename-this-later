@@ -5,7 +5,7 @@ export class ListConditionsCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "conditions";
+		this._name = "cond-list";
 		this._description =  "list_conditions";
 		this._category = "conditions";
 	}

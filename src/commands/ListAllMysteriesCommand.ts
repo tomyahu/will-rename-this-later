@@ -6,7 +6,7 @@ export class ListAllMysteriesCommand extends Command {
 	
 	constructor() {
 		super();
-		this._name = "all_mysteries";
+		this._name = "m-all";
 		this._description = "Lists all mysteries.";
 		this._category = "misteries";
 	}

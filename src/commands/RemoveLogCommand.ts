@@ -5,7 +5,7 @@ export class RemoveLogCommand extends Command {
 
 	constructor() {
 		super();
-		this._name = "remove_log";
+		this._name = "log-rm";
 		this._description =  "Removes a log given an id"
 		this._category = "logs";
 	}
