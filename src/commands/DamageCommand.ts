@@ -26,7 +26,7 @@ export class DamageCommand extends Command {
 		if( character === undefined )
 			return console.log(`Character ${character_name} doesn't exists`)
 
-		let splitted_answer = readline.question("Attribute and value: ").split(" ");
+		let splitted_answer = readline.question("Damage: ").split(" ");
 		if( splitted_answer.length != 1 )
 			return console.log("the amount of damage is required");
 

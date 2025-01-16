@@ -30,6 +30,8 @@ import { RollCommand } from "./commands/RollCommand";
 import { CreateConditionCommand } from "./commands/CreateConditionCommand";
 import { ListConditionsCommand } from "./commands/ListConditionsCommand";
 import { DamageCommand } from "./commands/DamageCommand";
+import { AddItemCommand } from "./commands/AddItemCommand";
+import { RemoveItemCommand } from "./commands/RemoveItemCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -67,6 +69,8 @@ export class Controller {
 			new RemoveLogCommand(),
 			new CreateConditionCommand(),
 			new ListConditionsCommand(),
+			new AddItemCommand(),
+			new RemoveItemCommand(),
 		])
 
 		this._storage = new Storage();

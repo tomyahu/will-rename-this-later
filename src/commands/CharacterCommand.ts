@@ -1,4 +1,5 @@
 import { Controller } from "../Controller";
+import { Item } from "../entities/Item";
 import { Command } from "./Command";
 
 
@@ -30,5 +31,10 @@ export class CharacterCommand extends Command {
 		console.log(`Str: ${character.str} \t\tInt: ${character.int}`)
 		console.log(`Dex: ${character.dex} \t\tWis: ${character.wis}`)
 		console.log(`Con: ${character.con} \t\tCha: ${character.cha}`)
+		console.log()
+		console.log("Inventory")
+		character.items.forEach( ( item : Item ) => {
+			console.log(`${item.name}: ${item.description}`);
+		})
 	}
 }

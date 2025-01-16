@@ -1,3 +1,4 @@
+import { Item } from "./Item";
 
 
 export class Character {
@@ -10,11 +11,13 @@ export class Character {
 	private _int: number;
 	private _wis: number;
 	private _cha: number;
+	private _items: { [id : string] : Item };
 
 	constructor( name: string ) {
 		this._name = name;
 		this._max_hp = 10;
 		this._hp = this._max_hp;
+		this._items = {};
 	}
 
 
@@ -40,6 +43,20 @@ export class Character {
 	}
 
 
+	// setItem
+	// sets a new item in the invetory
+	public addItem( name : string, description : string ) : void {
+		this._items[name] = new Item( name, description );
+	}
+
+
+	// removeItem
+	// removes an item from this characters inventory
+	public removeItem( name : string ) : void {
+		delete this._items[name];
+	}
+
+
 	// getters
 	get name() : string { return this._name; }
 	get max_hp() : number { return this._max_hp; }
@@ -50,6 +67,7 @@ export class Character {
 	get int() : number { return this._int; }
 	get wis() : number { return this._wis; }
 	get cha() : number { return this._cha; }
+	get items() : Item[] { return Object.values( this._items ); }
 
 	// setters
 	set max_hp( new_max_hp : number ) { this._max_hp = new_max_hp; }

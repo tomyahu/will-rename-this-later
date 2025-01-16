@@ -15,6 +15,12 @@ export class CharacterFactory {
 		if( "_int" in dictionary ) character.int = dictionary._int;
 		if( "_wis" in dictionary ) character.wis = dictionary._wis;
 		if( "_cha" in dictionary ) character.cha = dictionary._cha;
+		if( "_items" in dictionary ) {
+			Object.values( dictionary._items ).forEach( ( item : any ) => {
+				character.addItem( item._name, item._description );
+			} )
+		}
+
 		
 		return character;
 	}
