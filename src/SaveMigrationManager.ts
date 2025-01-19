@@ -15,6 +15,7 @@ export class SaveMigrationManager {
 		"0.3.0": this.m_0_3_0_to_0_3_1,
 		"0.3.1": this.m_0_3_1_to_0_4_0,
 		"0.4.0": this.m_0_4_0_to_0_4_1,
+		"0.4.1": this.m_0_4_1_to_0_5_0,
 	}
 
 
@@ -39,7 +40,6 @@ export class SaveMigrationManager {
 	}
 
 
-	// 0.0.1 -> 0.1.0
 	public static m_0_0_1_to_0_1_0( dictionary ) {
 		dictionary.logs = [];
 		dictionary.version = "0.1.0";
@@ -47,7 +47,6 @@ export class SaveMigrationManager {
 	}
 
 
-	// 0.1.0 -> 0.2.0
 	public static m_0_1_0_to_0_2_0( dictionary ) {
 		dictionary.places = {};
 		dictionary.version = "0.2.0";
@@ -55,7 +54,6 @@ export class SaveMigrationManager {
 	}
 
 
-	// 0.2.0 -> 0.2.1
 	public static m_0_2_0_to_0_2_1( dictionary ) {
 		dictionary.current_place = "";
 		dictionary.version = "0.2.1";
@@ -63,14 +61,12 @@ export class SaveMigrationManager {
 	}
 
 
-	// 0.2.1 -> 0.3.0
 	public static m_0_2_1_to_0_3_0( dictionary ) {
 		dictionary.party = [];
 		dictionary.version = "0.3.0";
 		return dictionary;
 	}
 	
-	// 0.3.0 -> 0.3.1
 	public static m_0_3_0_to_0_3_1( dictionary ) {
 		for( const key of Object.keys(dictionary.characters) ) {
 			dictionary.characters[key]["_max_hp"] = 1;
@@ -80,17 +76,22 @@ export class SaveMigrationManager {
 		return dictionary;
 	}
 
-	// 0.3.1 -> 0.4.0
 	public static m_0_3_1_to_0_4_0( dictionary ) {
 		dictionary.mysteries = [];
 		dictionary.version = "0.4.0";
 		return dictionary;
 	}
 
-	// 0.4.0 -> 0.4.1
 	public static m_0_4_0_to_0_4_1( dictionary ) {
 		dictionary.conditions = {};
 		dictionary.version = "0.4.1";
+		return dictionary;
+	}
+
+	public static m_0_4_1_to_0_5_0( dictionary ) {
+		delete dictionary.conditions;
+		dictionary.tasks = [];
+		dictionary.version = "0.5.0";
 		return dictionary;
 	}
 

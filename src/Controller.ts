@@ -27,11 +27,14 @@ import { MysteryClueCommand } from "./commands/MysteryClueCommand";
 import { MysteryDetailsCommand } from "./commands/MysteryDetailsCommand";
 import { CharacterCommand } from "./commands/CharacterCommand";
 import { RollCommand } from "./commands/RollCommand";
-import { CreateConditionCommand } from "./commands/CreateConditionCommand";
-import { ListConditionsCommand } from "./commands/ListConditionsCommand";
 import { DamageCommand } from "./commands/DamageCommand";
 import { AddItemCommand } from "./commands/AddItemCommand";
 import { RemoveItemCommand } from "./commands/RemoveItemCommand";
+import { SetTaskProgressCommand } from "./commands/SetTaskProgressCommand";
+import { ListTasksCommand } from "./commands/ListTasksCommand";
+import { ListAllTasksCommand } from "./commands/ListAllTasksCommand";
+import { CreateTaskCommand } from "./commands/CreateTaskCommand";
+import { AddProgressToTask } from "./commands/AddProgressToTask";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -67,10 +70,13 @@ export class Controller {
 			new AddLogCommand(),
 			new LogsCommand(),
 			new RemoveLogCommand(),
-			new CreateConditionCommand(),
-			new ListConditionsCommand(),
 			new AddItemCommand(),
 			new RemoveItemCommand(),
+			new SetTaskProgressCommand(),
+			new ListTasksCommand(),
+			new ListAllTasksCommand(),
+			new CreateTaskCommand(),
+			new AddProgressToTask(),
 		])
 
 		this._storage = new Storage();

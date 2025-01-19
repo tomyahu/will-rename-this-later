@@ -1,4 +1,4 @@
-export const SAVE_VERSION = "0.4.1" // Current version of the save files
+export const SAVE_VERSION = "0.5.0" // Current version of the save files
 export const WORD_TABLE = [
 	"Plegable",
 	"Ofensa",

@@ -7,19 +7,20 @@ import { PlaceFactory } from "./factories/PlaceFactory";
 import { SaveMigrationManager } from "./SaveMigrationManager";
 import { Mystery } from "./entities/Mystery";
 import { MysteryFactory } from "./factories/MysteryFactory";
-import { Condition } from "./entities/Condition";
+import { Task } from "./entities/Task";
+import { TaskFactory } from "./factories/TaskFactory";
 
 export class Storage {
 	private _characters : { [id : string]: Character };
 	private _places : { [id : string]: Place };
 	private _mysteries : Mystery[];
+	private _tasks : Task[];
 	private _data_path : string = "data.json";
 	private _logs : string[];
 	private version : string = SAVE_VERSION;
 	private _called_oracle = false;
 	private _current_place : Place;
 	private _party : Set<string>;
-	private _conditions : { [id : string]: Condition };
 
 	constructor() {
 		this._characters = {};
@@ -28,7 +29,7 @@ export class Storage {
 		this._logs = [];
 		this._current_place = new Place("null");
 		this._party = new Set<string>();
-		this._conditions = {};
+		this._tasks = [];
 	}
 
 
@@ -53,10 +54,10 @@ export class Storage {
 	}
 
 
-	// addCondition
-	// adds a new condition to the storage
-	public addCondition( condition : Condition ) : void {
-		this._conditions[ condition.name ] = condition;
+	// addTask
+	// adds a new task to the storage
+	public addTask( task : Task ) : void {
+		this._tasks.push( task );
 	}
 
 
@@ -78,6 +79,13 @@ export class Storage {
 	// gets all mysteries in the storage
 	public getMysteries() : Mystery[] {
 		return this._mysteries;
+	}
+
+
+	// getTasks
+	// gets all tasks in the storage
+	public getTasks() : Task[] {
+		return this._tasks;
 	}
 
 
@@ -128,9 +136,9 @@ export class Storage {
 
 		this._mysteries = [];
 		dictionary.mysteries.forEach( mystery => { this._mysteries.push( MysteryFactory.fromDictionary( mystery ) ) } )
-
-		this._conditions = {};
-		Object.values(dictionary.conditions).forEach( (condition : any) => { this._conditions[ condition._name ] = new Condition( condition._name, condition._description ) } );
+		
+		this._tasks = [];
+		dictionary.tasks.forEach( task => { this._tasks.push( TaskFactory.fromDictionary( task ) ) } )
 		
 		this._party = new Set<string>(dictionary.party);
 		this._logs = dictionary.logs;
@@ -148,7 +156,7 @@ export class Storage {
 			"current_place": this._current_place.name,
 			"party": Array.from( this._party.values() ),
 			"mysteries": this._mysteries.map( mystery => { return mystery.toDictionary(); } ),
-			"conditions": this._conditions,
+			"tasks": this._tasks,
 		}
 	}
 
@@ -160,7 +168,6 @@ export class Storage {
 	get called_oracle() : boolean { return this._called_oracle; }
 	get current_place() : Place { return this._current_place; }
 	get party() : Set<string> { return this._party; }
-	get conditions() : { [id : string] : Condition } { return this._conditions }
 
 
 	// setters
