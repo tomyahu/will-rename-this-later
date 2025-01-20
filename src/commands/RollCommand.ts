@@ -46,9 +46,9 @@ export class RollCommand extends Command {
 
 	private _parseSubstract( expression : string ) : number {
 		let sub_split = expression.split("-");
-		let res = 0;
-		for( let i = 0; i < sub_split.length; i++ ) {
-			res += this._parseVal( sub_split[i] );
+		let res = this._parseVal( sub_split[0] );
+		for( let i = 1; i < sub_split.length; i++ ) {
+			res -= this._parseVal( sub_split[i] );
 		}
 
 		return res
