@@ -18,12 +18,8 @@ export class OracleCommand extends Command {
 			return console.log("Oracle already called this turn")
 
 		let rand = Math.random()
-		if( rand < 0.25 )
+		if( rand < 0.5 )
 			console.log("No");
-		else if( rand < 0.25 )
-			console.log(`No but ${WordGenerator.randomWord()}`);
-		else if( rand < 0.25 )
-			console.log(`Yes but ${WordGenerator.randomWord()}`);
 		else
 			console.log("Yes");
 
