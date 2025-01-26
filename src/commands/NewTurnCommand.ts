@@ -1,4 +1,5 @@
 import { Controller } from "../Controller";
+import { WordGenerator } from "../lib/WordGenerator";
 import { Command } from "./Command";
 
 
@@ -18,6 +19,7 @@ export class NewTurnCommand extends Command {
 		storage.called_oracle = false;
 
 		console.log(`New turn`);
+		console.log( WordGenerator.randomWord() );
 		storage.save()
 	}
 }
