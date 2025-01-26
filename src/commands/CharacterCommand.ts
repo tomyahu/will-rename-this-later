@@ -28,9 +28,9 @@ export class CharacterCommand extends Command {
 
 		console.log(`-- ${character.name} --`)
 		console.log(`HP: ${character.hp} / ${character.max_hp}`)
-		console.log(`Str: ${character.str} \t\tInt: ${character.int}`)
-		console.log(`Dex: ${character.dex} \t\tWis: ${character.wis}`)
-		console.log(`Con: ${character.con} \t\tCha: ${character.cha}`)
+		console.log(`Str: ${character.str}\t\tInt: ${character.int}`)
+		console.log(`Dex: ${character.dex}\t\tWis: ${character.wis}`)
+		console.log(`Con: ${character.con}\t\tCha: ${character.cha}`)
 		console.log()
 		console.log("Inventory")
 		character.items.forEach( ( item : Item ) => {
