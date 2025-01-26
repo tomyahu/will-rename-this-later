@@ -35,6 +35,7 @@ import { ListTasksCommand } from "./commands/ListTasksCommand";
 import { ListAllTasksCommand } from "./commands/ListAllTasksCommand";
 import { CreateTaskCommand } from "./commands/CreateTaskCommand";
 import { AddProgressToTask } from "./commands/AddProgressToTask";
+import { SetDifficultyCommand } from "./commands/SetDifficultyCommand";
 
 export class Controller {
 	private commands : { [id : string] : Command ;} = {};
@@ -77,6 +78,7 @@ export class Controller {
 			new ListAllTasksCommand(),
 			new CreateTaskCommand(),
 			new AddProgressToTask(),
+			new SetDifficultyCommand(),
 		])
 
 		this._storage = new Storage();
