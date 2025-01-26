@@ -17,7 +17,7 @@ export class DamageCommand extends Command {
 	// damages a character
 	public execute(ctrl: Controller, args: string[]): void {
 		if( args.length < 1 )
-			return console.log("This command requires a character to heal");
+			return console.log("This command requires a character to do damage to");
 
 		let storage = ctrl.storage;
 		let character_name = args.join(" ");
